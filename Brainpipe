@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author MKnee000
+ */
+public class chaper6 {
+
+    public static void main (String[]args){
+        Scanner input = new Scanner(System.in);
+        int[] numbers = new int[10];
+        int inputNumber;
+        System.out.println("Please enter 10 Numbers: ");
+        for (int i = 0; i < numbers.length; i++){
+            inputNumber = input.nextInt();
+            int repeatNumber = java.util.Arrays.binarySearch(numbers, inputNumber);
+            if(repeatNumber >= 0){
+                numbers[i] = inputNumber;
+            }
+            
+        }
+        java.util.Arrays.sort(numbers);
+        printArray(numbers);
+
+  }
+    /**s
+     *
+     * @param numbers
+     * @return
+     */
+    public static int[] existing(int numbers[]){
+        int[] noRepeat;
+        for (int j = 0; j <numbers.length; j++){
+            int existNumber = java.util.Arrays.binarySearch(numbers, numbers[j]);
+            if (numbers[j] != existNumber){
+                noRepeat = new int[j];
+                noRepeat[j] = existNumber;
+                return noRepeat;
+            }
+        }
+        return null;
+
+    }
+
+    /**
+     *
+     * @param array
+     */
+    public static void printArray(int array[]){
+        System.out.println("Original numbers");
+        for (int k = 0; k <array.length; k++){
+            System.out.print(array[k] + ", ");
+        }
+    }
+}
+
